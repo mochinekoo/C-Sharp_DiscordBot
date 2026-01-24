@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>C_Shape_DiscordBot</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Discord.Net" Version="3.18.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="K:\C-Shape_DiscordBot\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="K:\C-Shape_DiscordBot\.editorconfig" />
+  </ItemGroup>
+
+</Project>
