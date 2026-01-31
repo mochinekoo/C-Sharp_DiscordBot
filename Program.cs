@@ -20,6 +20,17 @@ class Program {
         guildCommand.WithName("guild_info");
         guildCommand.WithDescription("ギルドの情報を表示するコマンド");
 
+        var weatherCommand = new SlashCommandBuilder();
+        weatherCommand.WithName("get_weather");
+        weatherCommand.AddOptions(new[] {
+            new SlashCommandOptionBuilder()
+            .WithName("city_code")
+            .WithDescription("都市コード")
+            .WithType(ApplicationCommandOptionType.String)
+            .WithRequired(true),
+        });
+        weatherCommand.WithDescription("天気情報を取得するコマンド");
+
         await client.LoginAsync(TokenType.Bot, ConfigManager.GetConfig().DiscordToken);
         await client.StartAsync();
 
@@ -28,6 +39,7 @@ class Program {
                 client.SlashCommandExecuted += CommandDispatcher.DispatchAsync;
                 await client.CreateGlobalApplicationCommandAsync(helloCommand.Build());
                 await client.CreateGlobalApplicationCommandAsync(guildCommand.Build());
+                await client.CreateGlobalApplicationCommandAsync(weatherCommand.Build());
             }
             catch (Exception ex) {
                 Console.WriteLine("エラーが発生しました:" + ex.Message);
